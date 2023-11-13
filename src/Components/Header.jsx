@@ -7,7 +7,7 @@ const HeaderNav = styled.nav`
   display: flex;
   justify-content: space-between;
 
-  & > span {
+  & > span.title {
     display: grid;
     place-items: center;
     margin-left: 2rem;
@@ -72,8 +72,7 @@ const CartCount = styled.span`
 export default function Header() {
   return (
     <HeaderNav>
-      <span>Shopping Cart</span>
-
+      <span className="title">Pixel Emporium</span>
       <SideWrapper>
         <span>Shop</span>
         <SocialsWrapper>
