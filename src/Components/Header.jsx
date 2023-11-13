@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 const HeaderNav = styled.nav`
   background-color: #3e3e3e;
@@ -72,7 +73,9 @@ const CartCount = styled.span`
 export default function Header() {
   return (
     <HeaderNav>
-      <span className="title">Pixel Emporium</span>
+      <span className="title">
+        <Link>Pixel Emporium</Link>
+      </span>
       <SideWrapper>
         <span>Shop</span>
         <SocialsWrapper>
