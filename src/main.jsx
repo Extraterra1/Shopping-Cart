@@ -6,7 +6,7 @@ import './index.css';
 
 WebFont.load({
   google: {
-    families: ['Open Sans:300,400,700']
+    families: ['Open Sans:300,400,700', 'Chakra Petch:300,400,700']
   }
 });
 
