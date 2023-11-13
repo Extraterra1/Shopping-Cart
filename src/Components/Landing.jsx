@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Icon } from '@iconify/react';
 import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 import officeImg from '../assets/office.jpg';
 
 const MainContainer = styled.main`
@@ -10,6 +10,12 @@ const MainContainer = styled.main`
   & > section {
     padding: 5rem;
     display: flex;
+  }
+
+  @media screen and (max-width: 700px) {
+    & > section {
+      padding: 3rem;
+    }
   }
 `;
 
@@ -27,6 +33,16 @@ const Hero = styled.div`
 
   & p.hero-slogan {
     font-size: 5rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding: 3rem;
+    & h1.hero-title {
+      font-size: 6rem;
+    }
+    & p.hero-slogan {
+      font-size: 2.7rem;
+    }
   }
 `;
 
@@ -63,6 +79,11 @@ const WhoWeAreGrid = styled.div`
       width: 100%;
       border-radius: 0.5rem;
     }
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+    padding: 2rem;
   }
 `;
 
@@ -101,11 +122,12 @@ export default function Landing() {
               </p>
             </div>
             <div className="wwa-img">
-              <img src={officeImg} alt="" />
+              <img src={officeImg} alt="Our Office" />
             </div>
           </WhoWeAreGrid>
         </WhoWeAre>
       </MainContainer>
+      <Footer />
     </>
   );
 }

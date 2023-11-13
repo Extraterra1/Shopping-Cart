@@ -54,6 +54,10 @@ const SocialsWrapper = styled.div`
       transition: all 0.3s;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    margin-right: 1rem;
+  }
 `;
 
 const CartCount = styled.span`
