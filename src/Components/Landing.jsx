@@ -2,19 +2,26 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import Header from './Header.jsx';
 
-const MainContainer = styled.div`
+const MainContainer = styled.main`
   display: flex;
   padding: 5rem;
 `;
 
-const Hero = styled.div`
+const Hero = styled.section`
   margin: 0 auto;
   padding: 8rem;
   border-radius: 0.3rem;
   font-family: 'Chakra Petch';
-  font-size: 5rem;
   background-color: #3a5417;
   text-align: center;
+
+  & h1.hero-title {
+    font-size: 8rem;
+  }
+
+  & p.hero-slogan {
+    font-size: 5rem;
+  }
 `;
 
 export default function Landing() {
@@ -23,8 +30,8 @@ export default function Landing() {
       <Header />
       <MainContainer>
         <Hero>
-          <h1>Pixel Emporium</h1>
-          <p>Transforming Visions into Virtual Brilliance!</p>
+          <h1 className="hero-title">Pixel Emporium</h1>
+          <p className="hero-slogan">Transforming Visions into Virtual Brilliance!</p>
         </Hero>
       </MainContainer>
     </>
