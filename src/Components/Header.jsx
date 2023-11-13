@@ -45,7 +45,7 @@ const SocialsWrapper = styled.div`
   margin-right: 5rem;
   align-items: center;
 
-  & > span.cart {
+  & span.cart {
     position: relative;
     padding: 1rem;
     cursor: pointer;
@@ -63,7 +63,6 @@ const SocialsWrapper = styled.div`
 const CartCount = styled.span`
   position: absolute;
   font-weight: 700;
-  top: 0;
   right: 0;
   background-color: #eee;
   color: var(--danger);
@@ -78,15 +77,17 @@ export default function Header() {
   return (
     <HeaderNav>
       <span className="title">
-        <Link>Pixel Emporium</Link>
+        <Link to="/">Pixel Emporium</Link>
       </span>
       <SideWrapper>
         <span>Shop</span>
         <SocialsWrapper>
-          <span className="cart">
-            <CartCount count={1}>1</CartCount>
-            <Icon icon="ion:cart" />
-          </span>
+          <Link to="/cart">
+            <span className="cart">
+              <CartCount count={1}>1</CartCount>
+              <Icon icon="ion:cart" />
+            </span>
+          </Link>
         </SocialsWrapper>
       </SideWrapper>
     </HeaderNav>
