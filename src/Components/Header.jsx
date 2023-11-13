@@ -23,6 +23,21 @@ const HeaderNav = styled.nav`
   }
 `;
 
+const SideWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  & > span {
+    font-size: 1.7rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  & > *:hover {
+    color: white;
+  }
+`;
+
 const SocialsWrapper = styled.div`
   display: flex;
   gap: 3rem;
@@ -36,9 +51,6 @@ const SocialsWrapper = styled.div`
     & > svg {
       font-size: 4rem;
       transition: all 0.3s;
-      &:hover {
-        color: white;
-      }
     }
   }
 `;
@@ -61,12 +73,16 @@ export default function Header() {
   return (
     <HeaderNav>
       <span>Shopping Cart</span>
-      <SocialsWrapper>
-        <span className="cart">
-          <CartCount count={1}>1</CartCount>
-          <Icon icon="ion:cart" />
-        </span>
-      </SocialsWrapper>
+
+      <SideWrapper>
+        <span>Shop</span>
+        <SocialsWrapper>
+          <span className="cart">
+            <CartCount count={1}>1</CartCount>
+            <Icon icon="ion:cart" />
+          </span>
+        </SocialsWrapper>
+      </SideWrapper>
     </HeaderNav>
   );
 }
