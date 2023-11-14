@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from './Header';
+import Card from './Card';
 
 const MainContainer = styled.main`
   display: flex;
@@ -53,11 +54,9 @@ const Shop = ({ cart, products, setCart, error }) => {
             <p>Uncover a Symphony of Digital Innovation in Our Exclusive Product Collection!</p>
           </div>
           <ProductsGrid>
-            <h2>Card</h2>
-            <h2>Card</h2>
-            <h2>Card</h2>
-            <h2>Card</h2>
-            <h2>Card</h2>
+            {products.map((e) => (
+              <Card key={e.id} product={e} />
+            ))}
           </ProductsGrid>
         </ShopSection>
       </MainContainer>
