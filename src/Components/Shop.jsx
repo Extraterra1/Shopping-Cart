@@ -34,6 +34,12 @@ const ShopSection = styled.section`
       font-size: 2rem;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    & > .title > h1 {
+      font-size: 5rem;
+    }
+  }
 `;
 
 const ProductsGrid = styled.div`
@@ -43,6 +49,10 @@ const ProductsGrid = styled.div`
   gap: 5rem;
 
   margin-top: 5rem;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  }
 `;
 
 const Shop = ({ cart, products, setCart, error }) => {
@@ -52,7 +62,7 @@ const Shop = ({ cart, products, setCart, error }) => {
       <MainContainer>
         <ShopSection>
           <div className="title">
-            <h1>Explore the PixelPerfection</h1>
+            <h1>Explore the Pixel Perfection</h1>
             <p>Uncover a Symphony of Digital Innovation in Our Exclusive Product Collection!</p>
           </div>
           <ProductsGrid>
