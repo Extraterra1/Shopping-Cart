@@ -96,7 +96,7 @@ const Header = ({ cart }) => {
 };
 
 Header.propTypes = {
-  cart: PropTypes.array
+  cart: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Header;

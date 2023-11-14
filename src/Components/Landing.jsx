@@ -88,7 +88,7 @@ const WhoWeAreGrid = styled.div`
   }
 `;
 
-const Landing = ({ cart, setCart, products }) => {
+const Landing = ({ cart, setCart, products, error }) => {
   return (
     <>
       <Header cart={cart} />
@@ -134,9 +134,10 @@ const Landing = ({ cart, setCart, products }) => {
 };
 
 Landing.propTypes = {
-  cart: PropTypes.array,
+  cart: PropTypes.arrayOf(PropTypes.object),
   setCart: PropTypes.func,
-  products: PropTypes.array
+  products: PropTypes.arrayOf(PropTypes.object),
+  error: PropTypes.string
 };
 
 export default Landing;
