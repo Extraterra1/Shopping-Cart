@@ -7,6 +7,7 @@ const CardContainer = styled.div`
   background-color: #e3e3e3;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 2rem;
   width: 100%;
   border-radius: 0.5rem;
@@ -16,6 +17,7 @@ const CardContainer = styled.div`
   & > .content {
     display: grid;
     grid-template-rows: 2fr auto auto 1fr auto;
+    height: 100%;
   }
 
   & > .content > .img {
@@ -26,6 +28,7 @@ const CardContainer = styled.div`
     border-radius: 0.25rem;
     display: flex;
     justify-content: center;
+
     & img {
       max-width: 100%;
       height: 100%;
