@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from './Header';
 import Card from './Card';
+import Footer from './Footer';
 
 const MainContainer = styled.main`
   display: flex;
@@ -61,6 +62,7 @@ const Shop = ({ cart, products, setCart, error }) => {
           </ProductsGrid>
         </ShopSection>
       </MainContainer>
+      <Footer />
     </>
   );
 };
