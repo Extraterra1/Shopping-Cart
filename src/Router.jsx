@@ -12,7 +12,7 @@ export default function Router() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('https://fakestoreassspi.com/products');
+        const res = await axios.get('https://fakestoreapi.com/products');
         setProducts(res.data);
         setLoading(false);
       } catch (err) {

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import officeImg from '../assets/office.jpg';
@@ -89,6 +91,10 @@ const WhoWeAreGrid = styled.div`
 `;
 
 const Landing = ({ cart, setCart, products, error }) => {
+  useEffect(() => {
+    if (error) toast.error(error);
+  }, [error]);
+
   return (
     <>
       <Header cart={cart} />
@@ -129,6 +135,7 @@ const Landing = ({ cart, setCart, products, error }) => {
         </WhoWeAre>
       </MainContainer>
       <Footer />
+      <Toaster />
     </>
   );
 };
