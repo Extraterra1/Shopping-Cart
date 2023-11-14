@@ -74,7 +74,7 @@ const CartCount = styled.span`
   visibility: ${(props) => (props.children > 0 ? 'visible' : 'hidden')};
 `;
 
-function Header({ cart }) {
+const Header = ({ cart }) => {
   return (
     <HeaderNav>
       <span className="title">
@@ -93,7 +93,7 @@ function Header({ cart }) {
       </SideWrapper>
     </HeaderNav>
   );
-}
+};
 
 Header.propTypes = {
   cart: PropTypes.array

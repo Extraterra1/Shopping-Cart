@@ -88,7 +88,7 @@ const WhoWeAreGrid = styled.div`
   }
 `;
 
-function Landing({ cart, setCart, products }) {
+const Landing = ({ cart, setCart, products }) => {
   return (
     <>
       <Header cart={cart} />
@@ -131,7 +131,7 @@ function Landing({ cart, setCart, products }) {
       <Footer />
     </>
   );
-}
+};
 
 Landing.propTypes = {
   cart: PropTypes.array,
