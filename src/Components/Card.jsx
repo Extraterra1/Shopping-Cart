@@ -13,6 +13,11 @@ const CardContainer = styled.div`
   color: #3e3e3e;
   font-family: 'Open Sans';
 
+  & > .content {
+    display: grid;
+    grid-template-rows: 2fr auto auto 1fr auto;
+  }
+
   & > .content > .img {
     overflow: hidden;
     max-width: 50%;
@@ -44,6 +49,8 @@ const CardContainer = styled.div`
     font-size: 1.2rem;
     margin-top: 1rem;
     max-width: 90ch;
+    display: flex;
+    align-items: center;
     &:first-letter {
       text-transform: uppercase;
     }
