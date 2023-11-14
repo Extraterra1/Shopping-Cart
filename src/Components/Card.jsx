@@ -5,6 +5,8 @@ import StarRating from './StarRating';
 
 const CardContainer = styled.div`
   background-color: #e3e3e3;
+  display: flex;
+  align-items: center;
   padding: 2rem;
   width: 100%;
   border-radius: 0.5rem;
@@ -50,7 +52,9 @@ const CardContainer = styled.div`
   & > .content > .price {
     font-size: 3rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
     margin-top: 2rem;
     letter-spacing: 2px;
     font-weight: 700;
@@ -62,6 +66,16 @@ const CardContainer = styled.div`
       display: flex;
       align-items: center;
       color: var(--success);
+    }
+    & button {
+      padding: 1rem 5rem;
+      font-size: 1.5rem;
+      background-color: var(--purple);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #804be2;
+      }
     }
   }
 `;
@@ -89,6 +103,7 @@ const Card = ({ product }) => {
             </span>
             {product.price.toFixed(2)}
           </p>
+          <button>Add to Cart</button>
         </div>
       </div>
     </CardContainer>

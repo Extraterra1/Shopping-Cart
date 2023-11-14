@@ -39,7 +39,7 @@ const ProductsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
   justify-items: center;
-  gap: 2rem;
+  gap: 5rem;
 
   margin-top: 5rem;
 `;
