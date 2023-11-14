@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import officeImg from '../assets/office.jpg';
@@ -87,10 +88,10 @@ const WhoWeAreGrid = styled.div`
   }
 `;
 
-export default function Landing({ cart }) {
+function Landing({ cart, setCart, products }) {
   return (
     <>
-      <Header />
+      <Header cart={cart} />
       <MainContainer>
         <section className="hero">
           <Hero>
@@ -131,3 +132,11 @@ export default function Landing({ cart }) {
     </>
   );
 }
+
+Landing.propTypes = {
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
+  products: PropTypes.array
+};
+
+export default Landing;

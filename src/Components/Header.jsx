@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const HeaderNav = styled.nav`
   background-color: #3e3e3e;
@@ -70,10 +71,10 @@ const CartCount = styled.span`
   padding: 0 0.5rem;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  visibility: ${(props) => (props.count > 0 ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.children > 0 ? 'visible' : 'hidden')};
 `;
 
-export default function Header() {
+function Header({ cart }) {
   return (
     <HeaderNav>
       <span className="title">
@@ -84,7 +85,7 @@ export default function Header() {
         <SocialsWrapper>
           <Link to="/cart">
             <span className="cart">
-              <CartCount count={1}>1</CartCount>
+              <CartCount>{cart.length}</CartCount>
               <Icon icon="ion:cart" />
             </span>
           </Link>
@@ -93,3 +94,9 @@ export default function Header() {
     </HeaderNav>
   );
 }
+
+Header.propTypes = {
+  cart: PropTypes.array
+};
+
+export default Header;

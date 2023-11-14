@@ -19,7 +19,7 @@ export default function Router() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Landing cart={cart} />
+      element: <Landing cart={cart} products={products} setCart={setCart} />
     }
   ]);
   return <RouterProvider router={router} />;
