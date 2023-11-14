@@ -81,7 +81,9 @@ const Header = ({ cart }) => {
         <Link to="/">Pixel Emporium</Link>
       </span>
       <SideWrapper>
-        <span>Shop</span>
+        <span>
+          <Link to="/shop">Shop</Link>
+        </span>
         <SocialsWrapper>
           <Link to="/cart">
             <span className="cart">

@@ -135,7 +135,7 @@ const Landing = ({ cart, setCart, products, error }) => {
         </WhoWeAre>
       </MainContainer>
       <Footer />
-      <Toaster />
+      <Toaster position="top-center" toastOptions={{ duration: 1000 }} />
     </>
   );
 };

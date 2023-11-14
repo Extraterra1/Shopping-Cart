@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Landing from './Components/Landing';
+import Shop from './Components/Shop';
 
 export default function Router() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -27,7 +28,11 @@ export default function Router() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Landing cart={cart} products={products} setCart={setCart} error={error} />
+      element: <Landing cart={cart} error={error} />
+    },
+    {
+      path: '/shop',
+      element: <Shop cart={cart} products={products} setCart={setCart} error={error} />
     }
   ]);
   return <RouterProvider router={router} />;
