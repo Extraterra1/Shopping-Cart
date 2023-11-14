@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import StarRating from './StarRating';
 
 const CardContainer = styled.div`
   background-color: #e3e3e3;
@@ -22,6 +23,12 @@ const CardContainer = styled.div`
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  & > .content > .rating {
+    text-align: center;
+    font-size: 1.7rem;
+    color: purple;
   }
 
   & > .content > .title {
@@ -49,6 +56,9 @@ const Card = ({ product }) => {
         </div>
         <div className="title">
           <h2>{product.title}</h2>
+        </div>
+        <div className="rating">
+          <StarRating rating={product.rating.rate} />
         </div>
         <div className="desc">
           <p>{product.description}</p>
