@@ -87,7 +87,7 @@ const WhoWeAreGrid = styled.div`
   }
 `;
 
-export default function Landing() {
+export default function Landing({ cart }) {
   return (
     <>
       <Header />
