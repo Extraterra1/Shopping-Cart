@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Icon } from '@iconify/react';
 import StarRating from './StarRating';
 
 const CardContainer = styled.div`
@@ -45,6 +46,24 @@ const CardContainer = styled.div`
       text-transform: uppercase;
     }
   }
+
+  & > .content > .price {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    & p {
+      display: flex;
+      align-items: center;
+    }
+    & svg {
+      display: flex;
+      align-items: center;
+      color: var(--success);
+    }
+  }
 `;
 
 const Card = ({ product }) => {
@@ -62,6 +81,14 @@ const Card = ({ product }) => {
         </div>
         <div className="desc">
           <p>{product.description}</p>
+        </div>
+        <div className="price">
+          <p>
+            <span>
+              <Icon icon="ion:logo-usd" />
+            </span>
+            {product.price.toFixed(2)}
+          </p>
         </div>
       </div>
     </CardContainer>
