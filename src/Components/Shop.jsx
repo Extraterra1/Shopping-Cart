@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import BounceLoader from 'react-spinners/BounceLoader';
-import { CSSProperties } from 'react';
 import Header from './Header';
 import Card from './Card';
 import Footer from './Footer';

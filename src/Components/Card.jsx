@@ -82,10 +82,14 @@ const CardContainer = styled.div`
       padding: 1rem 5rem;
       font-size: 1.5rem;
       background-color: var(--purple);
-      transition: all 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
 
       &:hover {
         background-color: #804be2;
+        transform: scale(1.1);
+        outline: 2px solid #58349b;
       }
     }
   }
