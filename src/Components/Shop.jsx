@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import BounceLoader from 'react-spinners/BounceLoader';
+import toast, { Toaster } from 'react-hot-toast';
 import Header from './Header';
 import Card from './Card';
 import Footer from './Footer';
@@ -64,13 +65,17 @@ const SpinnerOverride = {
 const Shop = ({ cart, products, setCart, error, loading }) => {
   const addToCart = (product) => {
     const isItemAlreadyOnCart = cart.find((e) => e.product.id === product.id);
-    if (isItemAlreadyOnCart)
+    if (isItemAlreadyOnCart) {
+      toast.success(`Item already on cart, increased quantity`);
       return setCart(
         cart.map((e) => {
           if (e.product.id === product.id) return { ...e, quantity: e.quantity + 1 };
           return e;
         })
       );
+    }
+
+    toast.success(`Added Item to Cart`);
     setCart([...cart, { product, quantity: 1 }]);
   };
   return (
@@ -91,6 +96,7 @@ const Shop = ({ cart, products, setCart, error, loading }) => {
         </ShopSection>
       </MainContainer>
       <Footer />
+      <Toaster position="top-center" toastOptions={{ duration: 1000, style: { fontSize: '1.5rem' } }} />
     </>
   );
 };
