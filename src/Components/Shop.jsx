@@ -62,6 +62,17 @@ const SpinnerOverride = {
 };
 
 const Shop = ({ cart, products, setCart, error, loading }) => {
+  const addToCart = (product) => {
+    const isItemAlreadyOnCart = cart.find((e) => e.product.id === product.id);
+    if (isItemAlreadyOnCart)
+      return setCart(
+        cart.map((e) => {
+          if (e.product.id === product.id) return { ...e, quantity: e.quantity + 1 };
+          return e;
+        })
+      );
+    setCart([...cart, { product, quantity: 1 }]);
+  };
   return (
     <>
       <Header cart={cart} />
@@ -74,7 +85,7 @@ const Shop = ({ cart, products, setCart, error, loading }) => {
           <BounceLoader loading={loading} cssOverride={SpinnerOverride} color="#804be2" size={100} speedMultiplier={3} />
           <ProductsGrid>
             {products.map((e) => (
-              <Card key={e.id} product={e} />
+              <Card key={e.id} product={e} addToCart={addToCart} />
             ))}
           </ProductsGrid>
         </ShopSection>

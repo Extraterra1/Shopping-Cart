@@ -95,7 +95,7 @@ const CardContainer = styled.div`
   }
 `;
 
-const Card = ({ product }) => {
+const Card = ({ product, addToCart }) => {
   return (
     <CardContainer>
       <div className="content">
@@ -118,7 +118,7 @@ const Card = ({ product }) => {
             </span>
             {product.price.toFixed(2)}
           </p>
-          <button>Add to Cart</button>
+          <button onClick={() => addToCart(product)}>Add to Cart</button>
         </div>
       </div>
     </CardContainer>
@@ -126,7 +126,8 @@ const Card = ({ product }) => {
 };
 
 Card.propTypes = {
-  product: PropTypes.object
+  product: PropTypes.object,
+  addToCart: PropTypes.func
 };
 
 export default Card;
