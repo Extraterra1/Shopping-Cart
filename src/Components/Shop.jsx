@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import BounceLoader from 'react-spinners/BounceLoader';
+import { CSSProperties } from 'react';
 import Header from './Header';
 import Card from './Card';
 import Footer from './Footer';
@@ -55,7 +57,12 @@ const ProductsGrid = styled.div`
   }
 `;
 
-const Shop = ({ cart, products, setCart, error }) => {
+const SpinnerOverride = {
+  margin: '0 auto',
+  marginTop: '5rem'
+};
+
+const Shop = ({ cart, products, setCart, error, loading }) => {
   return (
     <>
       <Header cart={cart} />
@@ -65,6 +72,7 @@ const Shop = ({ cart, products, setCart, error }) => {
             <h1>Explore the Pixel Perfection</h1>
             <p>Uncover a Symphony of Digital Innovation in Our Exclusive Product Collection!</p>
           </div>
+          <BounceLoader loading={loading} cssOverride={SpinnerOverride} color="#804be2" size={100} speedMultiplier={3} />
           <ProductsGrid>
             {products.map((e) => (
               <Card key={e.id} product={e} />
@@ -81,7 +89,8 @@ Shop.propTypes = {
   cart: PropTypes.arrayOf(PropTypes.object),
   setCart: PropTypes.func,
   products: PropTypes.arrayOf(PropTypes.object),
-  error: PropTypes.string
+  error: PropTypes.string,
+  loading: PropTypes.bool
 };
 
 export default Shop;

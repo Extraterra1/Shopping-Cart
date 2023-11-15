@@ -7,7 +7,7 @@ import Shop from './Components/Shop';
 export default function Router() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
-  const [, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Router() {
     },
     {
       path: '/shop',
-      element: <Shop cart={cart} products={products} setCart={setCart} error={error} />
+      element: <Shop loading={loading} cart={cart} products={products} setCart={setCart} error={error} />
     }
   ]);
   return <RouterProvider router={router} />;

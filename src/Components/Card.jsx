@@ -18,6 +18,7 @@ const CardContainer = styled.div`
     display: grid;
     grid-template-rows: 2fr auto auto 1fr auto;
     height: 100%;
+    align-items: center;
   }
 
   & > .content > .img {
