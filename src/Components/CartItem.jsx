@@ -75,7 +75,7 @@ const QuantityIconsContainer = styled.span`
   }
 `;
 
-const CartItem = ({ product, quantity, increaseQuantity }) => {
+const CartItem = ({ product, quantity, increaseQuantity, decreaseQuantity }) => {
   return (
     <>
       <ProductInfo>
@@ -89,7 +89,7 @@ const CartItem = ({ product, quantity, increaseQuantity }) => {
           Quantity: <span>{quantity}</span>
           <QuantityIconsContainer>
             <Icon onClick={() => increaseQuantity(product.id)} color="#28a745" icon="ion:plus" />
-            <Icon color="#dc3545" icon={quantity === 1 ? 'ion:trash' : 'ion:minus'} />
+            <Icon onClick={() => decreaseQuantity(product.id)} color="#dc3545" icon={quantity === 1 ? 'ion:trash' : 'ion:minus'} />
           </QuantityIconsContainer>
         </h2>
         <h2>
@@ -103,7 +103,8 @@ const CartItem = ({ product, quantity, increaseQuantity }) => {
 CartItem.propTypes = {
   product: PropTypes.object,
   quantity: PropTypes.number,
-  increaseQuantity: PropTypes.func
+  increaseQuantity: PropTypes.func,
+  decreaseQuantity: PropTypes.func
 };
 
 export default CartItem;

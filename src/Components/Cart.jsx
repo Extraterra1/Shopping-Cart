@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import getCartPrice from '../Helpers/getCartPrice';
 import Header from './Header';
 import CartItem from './CartItem';
 import Footer from './Footer';
+import LastWarning from './LastWarning';
 
 const MainContainer = styled.main`
   display: flex;
@@ -112,6 +114,8 @@ const CheckoutButton = styled.button`
 
 const Cart = ({ cart, setCart }) => {
   const { total, vat, subTotal } = getCartPrice(cart);
+  const [lastWarning, setLastWarning] = useState(null);
+
   const increaseQuantity = (id) => {
     const newCart = cart.map((e) => {
       if (e.product.id !== id) return e;
@@ -119,8 +123,23 @@ const Cart = ({ cart, setCart }) => {
     });
     setCart(newCart);
   };
+
+  const decreaseQuantity = (id) => {
+    const newCart = cart.reduce((result, e) => {
+      if (e.product.id !== id) result.push(e);
+      if (e.product.id === id && e.quantity > 1) result.push({ ...e, quantity: e.quantity - 1 });
+      if (e.product.id === id && e.quantity === 1) {
+        result.push(e);
+        setLastWarning(<LastWarning id={id} />);
+      }
+      return result;
+    }, []);
+    setCart(newCart);
+  };
+
   return (
     <>
+      {lastWarning}
       <Header cart={cart} />
       <MainContainer>
         <CartSection>
@@ -130,7 +149,13 @@ const Cart = ({ cart, setCart }) => {
             <>
               <CartGrid>
                 {cart.map((e) => (
-                  <CartItem key={e.product.id} product={e.product} quantity={e.quantity} increaseQuantity={increaseQuantity} />
+                  <CartItem
+                    key={e.product.id}
+                    product={e.product}
+                    quantity={e.quantity}
+                    increaseQuantity={increaseQuantity}
+                    decreaseQuantity={decreaseQuantity}
+                  />
                 ))}
                 <CartTotal>
                   <h4>Subtotal: ${subTotal}</h4>
