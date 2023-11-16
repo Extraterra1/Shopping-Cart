@@ -43,6 +43,10 @@ const CartGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   border: 2px dashed #e3e3e3;
   padding: 3rem;
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const EmptyCartMessageDiv = styled.div`
@@ -93,6 +97,10 @@ const CartTotal = styled.div`
     font-weight: 400;
     font-size: 1.3rem;
     margin-bottom: 1rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-column: auto;
   }
 `;
 

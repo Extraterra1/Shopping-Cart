@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 const Modal = styled.div`
   position: absolute;
-  top: 10rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 20%;
+  transform: translate(-50%, -50%);
+  width: 50%;
   background-color: var(--gray-dark);
   border-radius: 0.5rem;
   padding: 5rem;
+  z-index: 10;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,6 +34,11 @@ const Button = styled.button`
   &:hover {
     transform: scale(1.1);
     outline: 2px solid #58349b;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding: 0.5rem 2.5rem;
+    margin-top: 1rem;
   }
 `;
 

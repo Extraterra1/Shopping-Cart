@@ -32,6 +32,19 @@ const ProductInfo = styled.div`
       object-fit: contain;
     }
   }
+
+  @media screen and (max-width: 700px) {
+    border-bottom: none;
+
+    & h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    & .img {
+      width: 10rem;
+    }
+  }
 `;
 
 const ProductPrice = styled.div`
@@ -48,6 +61,10 @@ const ProductPrice = styled.div`
   & span {
     font-weight: 700;
     font-size: 1.9rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    padding-bottom: 2rem;
   }
 `;
 
