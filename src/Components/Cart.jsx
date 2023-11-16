@@ -83,7 +83,7 @@ const Cart = ({ cart }) => {
           {cart.length > 0 && (
             <CartGrid>
               {cart.map((e) => (
-                <CartItem key={e.product.id} product={e.product} />
+                <CartItem key={e.product.id} product={e.product} quantity={e.quantity} />
               ))}
             </CartGrid>
           )}
