@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import getCartPrice from '../Helpers/getCartPrice';
 import Header from './Header';
 import CartItem from './CartItem';
 import Footer from './Footer';
@@ -91,6 +92,7 @@ const CartTotal = styled.div`
 `;
 
 const Cart = ({ cart }) => {
+  console.log(getCartPrice(cart));
   return (
     <>
       <Header cart={cart} />
