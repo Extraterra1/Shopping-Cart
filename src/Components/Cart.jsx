@@ -81,6 +81,8 @@ const CartTotal = styled.div`
 
   & h3 {
     font-size: 2rem;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
   }
 
   & h4 {
@@ -92,7 +94,7 @@ const CartTotal = styled.div`
 `;
 
 const Cart = ({ cart }) => {
-  console.log(getCartPrice(cart));
+  const { total, vat, subTotal } = getCartPrice(cart);
   return (
     <>
       <Header cart={cart} />
@@ -106,9 +108,9 @@ const Cart = ({ cart }) => {
                 <CartItem key={e.product.id} product={e.product} quantity={e.quantity} />
               ))}
               <CartTotal>
-                <h4>Subtotal: $42.90</h4>
-                <h4>VAT (23%)</h4>
-                <h3>Your Total: $43.00</h3>
+                <h4>Subtotal: ${subTotal}</h4>
+                <h4>VAT (23%): ${vat}</h4>
+                <h3>Your Total: ${total}</h3>
               </CartTotal>
             </CartGrid>
           )}
