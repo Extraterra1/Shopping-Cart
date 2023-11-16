@@ -65,7 +65,7 @@ const EmptyCartMessageDiv = styled.div`
 
 const EmptyCartMessage = (
   <EmptyCartMessageDiv>
-    <h2>Your Cart is empty :(</h2>
+    <h2>You don't have any items in your cart :(</h2>
     <p>
       <Link to="/shop">Go to shop</Link>
     </p>
@@ -79,12 +79,14 @@ const Cart = ({ cart }) => {
       <MainContainer>
         <CartSection>
           <h1 className="title">Your Cart</h1>
-          <CartGrid>
-            {cart.length === 0 && EmptyCartMessage}
-            {cart.map((e) => (
-              <CartItem key={e.product.id} product={e.product} />
-            ))}
-          </CartGrid>
+          {cart.length === 0 && EmptyCartMessage}
+          {cart.length > 0 && (
+            <CartGrid>
+              {cart.map((e) => (
+                <CartItem key={e.product.id} product={e.product} />
+              ))}
+            </CartGrid>
+          )}
         </CartSection>
       </MainContainer>
       <Footer />
