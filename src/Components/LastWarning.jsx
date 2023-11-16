@@ -36,19 +36,22 @@ const Button = styled.button`
   }
 `;
 
-const LastWarning = ({ id, remove }) => {
+const LastWarning = ({ id, remove, setLastWarning }) => {
   return (
     <Modal>
       <h1>Remove item from cart?</h1>
       <Button onClick={() => remove(id)}>Yes</Button>
-      <Button $danger>No</Button>
+      <Button onClick={() => setLastWarning(null)} $danger>
+        No
+      </Button>
     </Modal>
   );
 };
 
 LastWarning.propTypes = {
   id: PropTypes.number,
-  remove: PropTypes.func
+  remove: PropTypes.func,
+  setLastWarning: PropTypes.func
 };
 
 export default LastWarning;

@@ -130,7 +130,7 @@ const Cart = ({ cart, setCart }) => {
       if (e.product.id === id && e.quantity > 1) result.push({ ...e, quantity: e.quantity - 1 });
       if (e.product.id === id && e.quantity === 1) {
         result.push(e);
-        setLastWarning(<LastWarning id={id} remove={removeFromCart} />);
+        setLastWarning(<LastWarning id={id} remove={removeFromCart} setLastWarning={setLastWarning} />);
       }
       return result;
     }, []);
