@@ -21,13 +21,15 @@ const ProductInfo = styled.div`
   }
 
   & .img {
-    max-height: 15rem;
+    max-height: 10rem;
     width: 15rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
     & img {
-      border-radius: 1rem;
       width: inherit;
       max-height: inherit;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 `;
