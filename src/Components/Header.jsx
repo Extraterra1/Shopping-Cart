@@ -25,6 +25,13 @@ const HeaderNav = styled.nav`
       transform: scale(1.04);
     }
   }
+
+  @media screen and (max-width: 700px) {
+    padding: 2rem;
+    & > span.title {
+      font-size: 3rem;
+    }
+  }
 `;
 
 const SideWrapper = styled.div`
