@@ -27,9 +27,10 @@ const CartSection = styled.section`
   gap: 5rem;
 
   & > h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     font-family: 'Chakra Petch';
     letter-spacing: 1px;
+    color: #d3d3d3;
   }
 `;
 

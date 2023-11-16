@@ -5,6 +5,14 @@ const ProductInfo = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 2rem;
+  align-items: center;
+  border-bottom: 2px dashed white;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+
+  &:first-child {
+    padding-top: 0;
+  }
 
   & h2 {
     font-size: 2rem;
@@ -26,6 +34,8 @@ const ProductInfo = styled.div`
 const ProductPrice = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px dashed #e3e3e3;
 
   & h2 {
     font-weight: 400;
