@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Header from './Header';
+import CartItem from './CartItem';
 import Footer from './Footer';
 
 const MainContainer = styled.main`
@@ -24,7 +26,7 @@ const CartSection = styled.section`
   flex-direction: column;
   gap: 5rem;
 
-  & h1 {
+  & > h1 {
     font-size: 4rem;
     font-family: 'Chakra Petch';
     letter-spacing: 1px;
@@ -38,6 +40,38 @@ const CartGrid = styled.div`
   padding: 3rem;
 `;
 
+const EmptyCartMessageDiv = styled.div`
+  padding: 1rem;
+
+  & h2 {
+    font-size: 1.7rem;
+    font-weight: 400;
+  }
+
+  & p {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    transition: all 0.3s ease-in;
+    font-weight: 700;
+
+    &:hover {
+      color: #fdfdfd;
+      text-underline-offset: 1rem;
+    }
+  }
+`;
+
+const EmptyCartMessage = (
+  <EmptyCartMessageDiv>
+    <h2>Your Cart is empty :(</h2>
+    <p>
+      <Link to="/shop">Go to shop</Link>
+    </p>
+  </EmptyCartMessageDiv>
+);
+
 const Cart = ({ cart }) => {
   return (
     <>
@@ -45,10 +79,15 @@ const Cart = ({ cart }) => {
       <MainContainer>
         <CartSection>
           <h1 className="title">Your Cart</h1>
-          <CartGrid>Item Item</CartGrid>
+          <CartGrid>
+            {cart.length === 0 && EmptyCartMessage}
+            {cart.map((e) => (
+              <CartItem key={e.product.id} product={e.product} />
+            ))}
+          </CartGrid>
         </CartSection>
       </MainContainer>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

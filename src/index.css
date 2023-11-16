@@ -81,6 +81,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#root {
+  min-height: inherit;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
