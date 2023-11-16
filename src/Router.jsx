@@ -3,6 +3,7 @@ import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Landing from './Components/Landing';
 import Shop from './Components/Shop';
+import Cart from './Components/Cart';
 
 export default function Router() {
   const [cart, setCart] = useState([]);
@@ -32,6 +33,10 @@ export default function Router() {
     {
       path: '/shop',
       element: <Shop loading={loading} cart={cart} products={products} setCart={setCart} error={error} />
+    },
+    {
+      path: '/cart',
+      element: <Cart cart={cart} setCart={setCart} />
     }
   ]);
   return <RouterProvider router={router} />;
