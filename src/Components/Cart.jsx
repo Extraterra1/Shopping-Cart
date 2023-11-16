@@ -73,6 +73,23 @@ const EmptyCartMessage = (
   </EmptyCartMessageDiv>
 );
 
+const CartTotal = styled.div`
+  grid-column: 1/3;
+  padding-top: 3rem;
+  justify-self: end;
+
+  & h3 {
+    font-size: 2rem;
+  }
+
+  & h4 {
+    text-align: right;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+`;
+
 const Cart = ({ cart }) => {
   return (
     <>
@@ -86,6 +103,11 @@ const Cart = ({ cart }) => {
               {cart.map((e) => (
                 <CartItem key={e.product.id} product={e.product} quantity={e.quantity} />
               ))}
+              <CartTotal>
+                <h4>Subtotal: $42.90</h4>
+                <h4>VAT (23%)</h4>
+                <h3>Your Total: $43.00</h3>
+              </CartTotal>
             </CartGrid>
           )}
         </CartSection>
