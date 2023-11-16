@@ -21,7 +21,6 @@ export default function Router() {
         setLoading(false);
       }
     };
-    console.log('fetching');
     fetchProducts();
   }, []);
 

@@ -8,6 +8,8 @@ const HeaderNav = styled.nav`
   padding-top: 0.5rem;
   display: flex;
   justify-content: space-between;
+  position: ${(props) => (props.$sticky ? 'sticky' : 'relative')};
+  top: 0;
 
   & > span.title {
     display: grid;
@@ -74,9 +76,9 @@ const CartCount = styled.span`
   visibility: ${(props) => (props.children > 0 ? 'visible' : 'hidden')};
 `;
 
-const Header = ({ cart }) => {
+const Header = ({ cart, sticky = false }) => {
   return (
-    <HeaderNav>
+    <HeaderNav $sticky={sticky}>
       <span className="title">
         <Link to="/">Pixel Emporium</Link>
       </span>
@@ -98,7 +100,8 @@ const Header = ({ cart }) => {
 };
 
 Header.propTypes = {
-  cart: PropTypes.arrayOf(PropTypes.object)
+  cart: PropTypes.arrayOf(PropTypes.object),
+  sticky: PropTypes.bool
 };
 
 export default Header;

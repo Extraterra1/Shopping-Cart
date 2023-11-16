@@ -90,7 +90,7 @@ const WhoWeAreGrid = styled.div`
   }
 `;
 
-const Landing = ({ cart, setCart, products, error }) => {
+const Landing = ({ cart, error }) => {
   useEffect(() => {
     if (error) toast.error(error);
   }, [error]);

@@ -80,7 +80,7 @@ const Shop = ({ cart, products, setCart, error, loading }) => {
   };
   return (
     <>
-      <Header cart={cart} />
+      <Header sticky cart={cart} />
       <MainContainer>
         <ShopSection>
           <div className="title">
