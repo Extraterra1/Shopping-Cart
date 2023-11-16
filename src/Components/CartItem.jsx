@@ -89,7 +89,7 @@ const CartItem = ({ product, quantity }) => {
           Quantity: <span>{quantity}</span>
           <QuantityIconsContainer>
             <Icon color="#28a745" icon="ion:plus" />
-            <Icon color="#dc3545" icon="ion:minus" />
+            <Icon color="#dc3545" icon={quantity === 1 ? 'ion:trash' : 'ion:minus'} />
           </QuantityIconsContainer>
         </h2>
         <h2>
