@@ -40,7 +40,7 @@ const LastWarning = ({ id, remove }) => {
   return (
     <Modal>
       <h1>Remove item from cart?</h1>
-      <Button>Yes</Button>
+      <Button onClick={() => remove(id)}>Yes</Button>
       <Button $danger>No</Button>
     </Modal>
   );

@@ -130,11 +130,17 @@ const Cart = ({ cart, setCart }) => {
       if (e.product.id === id && e.quantity > 1) result.push({ ...e, quantity: e.quantity - 1 });
       if (e.product.id === id && e.quantity === 1) {
         result.push(e);
-        setLastWarning(<LastWarning id={id} />);
+        setLastWarning(<LastWarning id={id} remove={removeFromCart} />);
       }
       return result;
     }, []);
     setCart(newCart);
+  };
+
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((e) => e.product.id !== id);
+    setCart(newCart);
+    setLastWarning(null);
   };
 
   return (
