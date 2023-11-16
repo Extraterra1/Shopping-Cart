@@ -110,8 +110,15 @@ const CheckoutButton = styled.button`
   }
 `;
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, setCart }) => {
   const { total, vat, subTotal } = getCartPrice(cart);
+  const increaseQuantity = (id) => {
+    const newCart = cart.map((e) => {
+      if (e.product.id !== id) return e;
+      return { ...e, quantity: e.quantity + 1 };
+    });
+    setCart(newCart);
+  };
   return (
     <>
       <Header cart={cart} />
@@ -123,7 +130,7 @@ const Cart = ({ cart }) => {
             <>
               <CartGrid>
                 {cart.map((e) => (
-                  <CartItem key={e.product.id} product={e.product} quantity={e.quantity} />
+                  <CartItem key={e.product.id} product={e.product} quantity={e.quantity} increaseQuantity={increaseQuantity} />
                 ))}
                 <CartTotal>
                   <h4>Subtotal: ${subTotal}</h4>
@@ -142,7 +149,8 @@ const Cart = ({ cart }) => {
 };
 
 Cart.propTypes = {
-  cart: PropTypes.arrayOf(PropTypes.object)
+  cart: PropTypes.arrayOf(PropTypes.object),
+  setCart: PropTypes.func
 };
 
 export default Cart;
