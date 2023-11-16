@@ -26,6 +26,7 @@ const CartSection = styled.section`
   background-color: #5c5c5c;
   flex-direction: column;
   gap: 5rem;
+  min-height: 100%;
 
   & > h1 {
     font-size: 6rem;
@@ -93,6 +94,22 @@ const CartTotal = styled.div`
   }
 `;
 
+const CheckoutButton = styled.button`
+  padding: 1rem 5rem;
+  font-size: 2rem;
+  background-color: var(--purple);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: #804be2;
+    transform: scale(1.1);
+    outline: 2px solid #58349b;
+  }
+`;
+
 const Cart = ({ cart }) => {
   const { total, vat, subTotal } = getCartPrice(cart);
   return (
@@ -103,16 +120,19 @@ const Cart = ({ cart }) => {
           <h1 className="title">Your Cart</h1>
           {cart.length === 0 && EmptyCartMessage}
           {cart.length > 0 && (
-            <CartGrid>
-              {cart.map((e) => (
-                <CartItem key={e.product.id} product={e.product} quantity={e.quantity} />
-              ))}
-              <CartTotal>
-                <h4>Subtotal: ${subTotal}</h4>
-                <h4>VAT (23%): ${vat}</h4>
-                <h3>Your Total: ${total}</h3>
-              </CartTotal>
-            </CartGrid>
+            <>
+              <CartGrid>
+                {cart.map((e) => (
+                  <CartItem key={e.product.id} product={e.product} quantity={e.quantity} />
+                ))}
+                <CartTotal>
+                  <h4>Subtotal: ${subTotal}</h4>
+                  <h4>VAT (23%): ${vat}</h4>
+                  <h3>Your Total: ${total}</h3>
+                </CartTotal>
+              </CartGrid>
+              <CheckoutButton>Check Out</CheckoutButton>
+            </>
           )}
         </CartSection>
       </MainContainer>

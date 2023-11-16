@@ -22,12 +22,12 @@ const ProductInfo = styled.div`
 
   & .img {
     max-height: 15rem;
-    width: 100%;
+    width: 15rem;
     & img {
       border-radius: 1rem;
       width: inherit;
       max-height: inherit;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 `;
@@ -91,7 +91,7 @@ const CartItem = ({ product, quantity }) => {
           </QuantityIconsContainer>
         </h2>
         <h2>
-          Price: <span>${product.price}</span>
+          Price: <span>${product.price.toFixed(2)}</span>
         </h2>
       </ProductPrice>
     </>
