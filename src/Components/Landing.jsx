@@ -72,19 +72,19 @@ const WhoWeAre = styled.section`
 
 const WhoWeAreGrid = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   gap: 5rem;
 
   & .wwa-img {
     & img {
-      object-fit: cover;
+      object-fit: contain;
       width: 100%;
       border-radius: 0.5rem;
     }
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
     padding: 2rem;
   }
@@ -106,7 +106,7 @@ const Landing = ({ cart, error }) => {
           </Hero>
         </section>
         <WhoWeAre>
-          <h2 className="wwa-title">Who we are</h2>
+          <h2 className="wwa-title">Who We Are</h2>
           <WhoWeAreGrid>
             <div className="wwa-content">
               <p>
