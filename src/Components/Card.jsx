@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import StarRating from './StarRating';
 
 const CardContainer = styled.div`
-  background-color: #e3e3e3;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@ const CardContainer = styled.div`
     & img {
       max-width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
